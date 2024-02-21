@@ -20,20 +20,21 @@ function divide(num1, num2) {
 
 function operate(operator, num1, num2) {
     if(operator === "+") {
-        add(num1, num2);
+        return add(num1, num2);
     }
     else if(operator === "-") {
-        subtract(num1, num2);
+        return subtract(num1, num2);
     }
     else if(operator === "*") {
-        multiply(num1, num2);
+        return multiply(num1, num2);
     }
     else if(operator === "/") {
-        divide(num1, num2);
+        return divide(num1, num2);
     }
 }
 
 const display = document.querySelector('.display');
+
 
 document.addEventListener('click', function(event) {
     switch(event.target.className) {
@@ -67,6 +68,30 @@ document.addEventListener('click', function(event) {
         case '9':
             display.textContent += "9";
             break;
+        case 'add':
+            num1 = +display.textContent;
+            operator = "+";
+            display.textContent = "";
+            break;
+        case 'subtract':
+            num1 = +display.textContent;
+            operator = "-";
+            display.textContent = "";
+            break;
+        case 'multiply':
+            num1 = +display.textContent;
+            operator = "*";
+            display.textContent = "";
+            break;
+        case 'divide':
+            num1 = +display.textContent;
+            operator = "/";
+            display.textContent = "";
+            break;
+        case 'equals':
+            num2 = +display.textContent;
+            display.textContent = operate(operator, num1, num2);
+            break;
         case 'clear':
             display.textContent = "";
         default:
@@ -74,6 +99,3 @@ document.addEventListener('click', function(event) {
 
     }
 });
-
-num1 = display.textContent;
-console.log(num1);
