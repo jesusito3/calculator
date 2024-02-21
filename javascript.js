@@ -1,5 +1,5 @@
-let num1 = 0;
-let num2 = 0;
+let num1 = "";
+let num2 = "";
 let operator = "";
 
 function add(num1, num2) {
@@ -37,6 +37,9 @@ const display = document.querySelector('.display');
 
 
 document.addEventListener('click', function(event) {
+    if(display.textContent === "0") {
+        display.textContent = "";
+    }
     switch(event.target.className) {
         case '0':
             display.textContent += "0";
@@ -69,31 +72,31 @@ document.addEventListener('click', function(event) {
             display.textContent += "9";
             break;
         case 'add':
-            num1 = +display.textContent;
+            num1 = display.textContent;
             operator = "+";
             display.textContent = "";
             break;
         case 'subtract':
-            num1 = +display.textContent;
+            num1 = display.textContent;
             operator = "-";
             display.textContent = "";
             break;
         case 'multiply':
-            num1 = +display.textContent;
+            num1 = display.textContent;
             operator = "*";
             display.textContent = "";
             break;
         case 'divide':
-            num1 = +display.textContent;
+            num1 = display.textContent;
             operator = "/";
             display.textContent = "";
             break;
         case 'equals':
-            num2 = +display.textContent;
-            display.textContent = operate(operator, num1, num2);
+            num2 = display.textContent;
+            display.textContent = operate(operator, +num1, +num2);
             break;
         case 'clear':
-            display.textContent = "";
+            display.textContent = "0";
         default:
             break;
 
