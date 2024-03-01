@@ -6,6 +6,10 @@ h1 {
     text-align: center;
 }
 
+.alerts {
+    text-align: center;
+}
+
 .calculator {
     display: flex;
     flex-direction: column;
